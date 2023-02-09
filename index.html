@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="js/main.js" defer></script>
+    <title>Track the score</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+        <p class="main-header">Score Tracker</p>
+      </div>
+      <div class="main-content">
+        <div class="team-name">
+          <div>Team A</div>
+          <div>Team B</div>
+        </div>
+        <div class="table-head">
+          <div class="table-header single-track">
+            <div class="text-small team-track team-a-track">
+              <div class="prev-score">Previous</div>
+              <div class="round-result">Current</div>
+              <div class="sub-total">Sub total</div>
+            </div>
+            <div class="text-small team-track team-a-track">
+              <div class="prev-score">Previous</div>
+              <div class="round-result">Current</div>
+              <div class="sub-total">Sub total</div>
+            </div>
+          </div>
+        </div>
+        <div class="score-tracks">
+          <!-- single track section -->
+          <!-- <div class="single-track">
+            
+            <div class="team-track team-a-track">
+              <div class="prev-score">0</div>
+              <div class="round-result">7</div>
+              <div class="sub-total">7</div>
+            </div>
+        
+            <div class="team-track team-b-track">
+              <div class="prev-score">0</div>
+              <div class="round-result">-4</div>
+              <div class="sub-total">-4</div>
+            </div>
+          </div> -->
+        </div>
+        <div class="total-score">
+          <!-- show total score -->
+          <div class="team-score team-a-score">36</div>
+          <div class="team-score team-b-score">15</div>
+        </div>
+        <!-- input score section -->
+        <div class="score-input">
+          <form class="add-score-form">
+            <div class="input-group">
+              <input placeholder="Team A score" type="number" id="inputA" />
+              <input placeholder="Team b score" type="number" id="inputB" />
+            </div>
+            <button class="submit-button" type="submit">Add Score</button>
+          </form>
+        </div>
+        <button class="clear">Clear Scores</button>
+      </div>
+    </div>
+  </body>
+</html>

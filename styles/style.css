@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #01232d;
+  color: #fff;
+}
+.container {
+  padding: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* header */
+.main-header {
+  font-size: 2rem;
+  text-align: center;
+  margin-block: 1rem;
+}
+
+.main-content {
+  background-color: #01303e;
+  padding: 0.5rem;
+  min-height: calc(100vh - 10rem);
+  border-radius: 15px;
+}
+.score-tracks {
+  margin-top: 1rem;
+}
+.team-name {
+  display: flex;
+  background: #036482;
+  border-radius: 1rem;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.team-name > div {
+  width: 100%;
+  text-align: center;
+  padding-block: 0.8rem;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.single-track {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.team-track {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding-inline: 1.5rem;
+  padding-block: 0.5rem;
+  font-size: 18px;
+  background: #00577c;
+  border-radius: 0.8rem;
+}
+
+.team-track > div {
+  width: 100%;
+}
+.sub-total {
+  text-align: right;
+}
+.round-result {
+  text-align: center;
+}
+/* total score */
+.total-score {
+  margin-top: 2rem;
+  display: flex;
+  border-radius: 1rem;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 2rem;
+}
+.team-score {
+  width: 100%;
+  text-align: center;
+}
+
+/* score input section */
+.score-input {
+  margin-top: 2rem;
+}
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-group > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.submit-button {
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #009c0d;
+  color: #fff;
+  cursor: pointer;
+  /* transition: 0.3s all ease-in; */
+}
+
+.submit-button:hover {
+  background-color: #05cc16;
+}
+.clear {
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #d30404;
+  color: #fff;
+  cursor: pointer;
+}
+
+.text-small {
+  font-size: 10px;
+  color: #00f815;
+}
+.green {
+  color: #1fff32;
+}
+.red {
+  color: #f70000;
+}
