@@ -38,8 +38,12 @@ body {
   justify-content: space-between;
   gap: 0.5rem;
 }
-.team-name > div {
+.team-name > input {
   width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
   text-align: center;
   padding-block: 0.8rem;
   font-size: 24px;
@@ -150,7 +154,7 @@ body {
 
 .text-small {
   font-size: 10px;
-  color: #00f815;
+  color: #eeff01;
 }
 .green {
   color: #1fff32;

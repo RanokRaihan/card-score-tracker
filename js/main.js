@@ -2,11 +2,40 @@
 const teamAScoreInput = document.querySelector("#inputA");
 const teamBScoreInput = document.querySelector("#inputB");
 const addButton = document.querySelector(".submit-Button");
+const teamAName = document.querySelector(".team-a-name");
+const teamBName = document.querySelector(".team-b-name");
 const clearButton = document.querySelector(".clear");
 const addScoreForm = document.querySelector(".add-score-form");
 const trackContainer = document.querySelector(".score-tracks");
 const teamATotalScore = document.querySelector(".team-a-score");
 const teamBTotalScore = document.querySelector(".team-b-score");
+
+//team name
+const setTeamName = () => {
+  const teamNames = localStorage.getItem("teamNames");
+  if (!teamNames) {
+    localStorage.setItem(
+      "teamNames",
+      JSON.stringify({
+        teamA: "Team A",
+        teamB: "Team B",
+      })
+    );
+  } else {
+    const teamNameParsed = JSON.parse(teamNames);
+    teamAName.value = teamNameParsed.teamA;
+    teamBName.value = teamNameParsed.teamB;
+    teamAScoreInput.placeholder = `${teamNameParsed.teamA} score`;
+    teamBScoreInput.placeholder = `${teamNameParsed.teamB} score`;
+  }
+};
+
+// edit team name
+const editTeamName = (teamName, value) => {
+  const teamNames = JSON.parse(localStorage.getItem("teamNames"));
+  teamNames[teamName] = value;
+  localStorage.setItem("teamNames", JSON.stringify(teamNames));
+};
 
 //render function
 const render = () => {
@@ -46,12 +75,11 @@ const render = () => {
 //clear scores function
 const clearScores = () => {
   if (confirm("Are you sure to clear the scores?")) {
-    localStorage.clear();
+    localStorage.removeItem("trackDB");
     render();
   }
 };
 
-render();
 //clear input
 const clearInput = () => {
   teamAScoreInput.value = "";
@@ -75,7 +103,7 @@ const addScore = (e) => {
     const dbParsed = JSON.parse(db);
 
     const newTrackData = {
-      roundNo: dbParsed.length,
+      roundNo: dbParsed.length + 1,
       teamAStatus: Number(teamAScore),
       teamBStatus: Number(teamBScore),
     };
@@ -93,5 +121,16 @@ const addScore = (e) => {
   render();
 };
 
+setTeamName();
+render();
 addScoreForm.addEventListener("submit", (e) => addScore(e));
 clearButton.addEventListener("click", clearScores);
+
+teamAName.addEventListener("blur", (e) => {
+  editTeamName("teamA", e.target.value);
+  teamAScoreInput.placeholder = `${e.target.value} score`;
+});
+teamBName.addEventListener("blur", (e) => {
+  editTeamName("teamB", e.target.value);
+  teamBScoreInput.placeholder = `${e.target.value} score`;
+});
