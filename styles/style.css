@@ -10,6 +10,17 @@ body {
   background-color: #01232d;
   color: #fff;
 }
+.header {
+  margin-top: 2rem;
+}
+.banar {
+  width: 100%;
+}
+.banar img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
 .container {
   padding: 0.5rem;
   max-width: 600px;
@@ -17,9 +28,15 @@ body {
 }
 /* header */
 .main-header {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 900;
   text-align: center;
-  margin-block: 1rem;
+  margin-bottom: 1rem;
+}
+@media only screen and (min-width: 600px) {
+  .main-header {
+    font-size: 5rem;
+  }
 }
 
 .main-content {
