@@ -87,7 +87,17 @@ body {
   width: 100%;
   text-align: center;
 }
-
+.team-score > span {
+  background-color: #01232d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  font-size: 3rem;
+  border-radius: 50%;
+}
 /* score input section */
 .score-input {
   margin-top: 2rem;
