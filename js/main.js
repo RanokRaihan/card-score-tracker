@@ -9,6 +9,7 @@ const addScoreForm = document.querySelector(".add-score-form");
 const trackContainer = document.querySelector(".score-tracks");
 const teamATotalScore = document.querySelector(".team-a-score");
 const teamBTotalScore = document.querySelector(".team-b-score");
+const singleTrack = document.querySelector(".single-track");
 
 //team name
 const setTeamName = () => {
@@ -45,7 +46,7 @@ const render = () => {
   let teamBTotal = 0;
   if (data) {
     data.forEach((singleData) => {
-      markup += `<div class="single-track">
+      markup += `<div class="single-track" onclick="deleteTrack('${singleData.id}')">
      
       <div class="team-track team-a-track">
         <div class="prev-score">${teamATotal}</div>
@@ -91,35 +92,48 @@ const addScore = (e) => {
 
   const teamAScore = teamAScoreInput.value;
   const teamBScore = teamBScoreInput.value;
-  //   console.log(teamAScore, teamBScore);
+
   if (teamAScore.trim() === "" || teamBScore.trim() === "") {
-    console.log("entered");
     return;
   }
-  console.log(teamAScore, teamBScore);
+
   const db = localStorage.getItem("trackDB");
-  console.log(db);
+
   if (db) {
     const dbParsed = JSON.parse(db);
 
     const newTrackData = {
-      roundNo: dbParsed.length + 1,
+      id: generateId(),
       teamAStatus: Number(teamAScore),
       teamBStatus: Number(teamBScore),
+      timestamp: new Date().getTime(),
     };
     dbParsed.push(newTrackData);
     localStorage.setItem("trackDB", JSON.stringify(dbParsed));
   } else {
     const newTrackData = {
-      roundNo: 1,
+      id: generateId(),
       teamAStatus: Number(teamAScore),
       teamBStatus: Number(teamBScore),
+      timestamp: new Date().getTime(),
     };
     localStorage.setItem("trackDB", JSON.stringify([newTrackData]));
   }
   clearInput();
   render();
 };
+
+// show modal
+const deleteTrack = (id) => {
+  if (confirm("Delete the track?")) {
+    const data = JSON.parse(localStorage.getItem("trackDB"));
+    const newData = data.filter((singleTrack) => singleTrack.id !== id);
+    localStorage.setItem("trackDB", JSON.stringify(newData));
+    render();
+  }
+};
+
+// edit score
 
 setTeamName();
 render();
