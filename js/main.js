@@ -50,17 +50,21 @@ const render = () => {
      
       <div class="team-track team-a-track">
         <div class="prev-score">${teamATotal}</div>
-        <div class="round-result ${singleData?.teamAStatus > 0 ? "green" : "red"}">${
-        singleData?.teamAStatus > 0 ? `+${singleData?.teamAStatus}` : singleData?.teamAStatus
-      }</div>
+         <div class="round-result ${
+           singleData?.teamAStatus < 0 ? "red" : singleData?.teamAStatus === 13 ? "bonus" : "green"
+         }">
+        
+          ${singleData?.teamAStatus > 0 ? `+${singleData?.teamAStatus}` : singleData?.teamAStatus}
+         
+      </div>
         <div class="sub-total">${teamATotal + singleData?.teamAStatus}</div>
       </div>
      
       <div class="team-track team-b-track">
         <div class="prev-score">${teamBTotal}</div>
-        <div class="round-result ${singleData?.teamBStatus > 0 ? "green" : "red"}">${
-        singleData?.teamBStatus > 0 ? `+${singleData?.teamBStatus}` : singleData?.teamBStatus
-      }</div>
+        <div class="round-result ${
+          singleData?.teamBStatus < 0 ? "red" : singleData?.teamBStatus === 13 ? "bonus" : "green"
+        }">${singleData?.teamBStatus > 0 ? `+${singleData?.teamBStatus}` : singleData?.teamBStatus}</div>
         <div class="sub-total">${teamBTotal + singleData?.teamBStatus}</div>
       </div>
     </div>`;
