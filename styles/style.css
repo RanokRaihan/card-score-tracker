@@ -119,6 +119,7 @@ body {
   margin: 0 auto;
   font-size: 3rem;
   border-radius: 50%;
+  border: 5px solid rgb(74, 250, 74);
 }
 /* score input section */
 .score-input {
